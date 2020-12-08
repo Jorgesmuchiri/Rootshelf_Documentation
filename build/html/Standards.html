@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development Standards &mdash; KHRO Documentation 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> KHRO Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developement%20Standards.html">Developement Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developement%20Standards.html#id5">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DHIS2%20ETL.html">DHIS2 ETL (Microservice)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">KHRO Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Development Standards</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Standards.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development-standards">
+<h1>Development Standards<a class="headerlink" href="#development-standards" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-programming">
+<h2>General programming<a class="headerlink" href="#general-programming" title="Permalink to this headline">¶</a></h2>
+<p>All indices should zero based. e.g. if a ¡select¿ element has sequential numeric values these
+would be from the series 0,1,2,3.</p>
+</div>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<p><strong>Naming</strong></p>
+<ul class="simple">
+<li><p>table names, column names: all lowercase, use underscores to separate words e.g <a href="#id1"><span class="problematic" id="id2">**</span></a>e.g permission role</p></li>
+</ul>
+<p>**
+* names with abbreviations may be treated differently e.g. <strong>targetTAT</strong> makes more sense
+* better long names that makes sense</p>
+<ol class="arabic simple">
+<li><p>Use of appropriate field type e.g. ‘<strong>SMALLINT</strong>’ instead of ‘<strong>STRING</strong>’ for age</p></li>
+<li><p>If a primary key is necessary on a table it should be the first column and should be named ‘id’. It should be unsigned.</p></li>
+<li><p>When this id is referenced in another table (as a foreign key) it should be called ‘<strong>tablename_id</strong>’</p></li>
+<li><p>Create a migration file for every new table or change to a table. If necessary add the seed data using a separate file. See the <a href="#id3"><span class="problematic" id="id4">`</span></a>Migrations &amp; Seeding section of the online Laravel guide.</p></li>
+</ol>
+<p><strong>PHP Classes This applies to Controllers, Models, migration and seeding classes, …</strong></p>
+<ol class="arabic simple">
+<li><p>Class names always begins with uppercase e.g. <strong>CreateTestTypeMeasureTable</strong></p></li>
+<li><p>When combining words every word begins with uppercase. Do not use underscores e.g. <strong>DataType</strong> as opposed to <strong>Data_type</strong></p></li>
+<li><p>Method or Function names begin in lowercase and words join in uppercase e.g. <strong>getHealthData()</strong></p></li>
+<li><p>Provide descriptive class and function comments before their definitions</p></li>
+<li><p>Variable names - begin in lowercase. Multiple words should begin in upper case e.g. <strong>dataType</strong></p></li>
+<li><p>Better long names that makes sense e.g. <strong>dataType</strong> instead of <strong>datTyp</strong></p></li>
+<li><p>Soft delete(s) preferable to hard delete(s)</p></li>
+</ol>
+</div>
+<div class="section" id="javascript">
+<h2>Javascript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Using jquery</p></li>
+<li><p>All javascript code should be in external files (<code class="docutils literal notranslate"><span class="pre">public/js/</span></code>)</p></li>
+</ol>
+</div>
+<div class="section" id="gitlab">
+<h2>Gitlab<a class="headerlink" href="#gitlab" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Create a branch from the master for the same change. The branch name should be descriptive</p></li>
+<li><p>Once fixed, create a pull request asking a specific person to review the feature</p></li>
+<li><p>Reviewed and approved features should be merged back to the master and the branch deleted</p></li>
+<li><p>You can link to a line of code, or a section of code by reading <a class="reference external" href="https://gist.github.com/briankip/c2fb1d40873fc644ed66">here</a></p></li>
+<li><p>There are config files that you want to change but don’t want to commit, i.e <code class="docutils literal notranslate"><span class="pre">/app/config/app.php</span></code> and <code class="docutils literal notranslate"><span class="pre">/app/config/database.php</span></code> you can prevent yourself from accidentally commiting these files by doing <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">update-index</span> <span class="pre">--assume-unchanged</span> <span class="pre">/path/to/file.ext</span></code> your changes will no longer be tracked. [<a class="reference external" href="http://archive.robwilkerson.org/2010/03/02/git-tip-ignore-changes-to-tracked-files/">Read more here</a>]</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id5">
+<h1>Database<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
+<img alt="database.png" class="align-center" src="database.png" />
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, @iLabAfrica
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

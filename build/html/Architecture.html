@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Architecture &mdash; KHRO Documentation 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Feature List (Current)" href="Feature%20List%20%28Current%29.html" />
+    <link rel="prev" title="Welcome to KHRO’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> KHRO Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#back-end">Back-end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#front-end">Front-end</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#back-end-development-specifications">Back end development specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#front-end-development-specifications">Front end development specifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Feature%20List%20%28Current%29.html">Feature List (Current)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Standards.html">Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Standards.html#id5">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Versioning%20and%20Releasing.html">Versioning and Releasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">KHRO Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Architecture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<p>The integrated Kenya Health and Research Observatory illustrated below comprises of a back-end
+data warehouse that is inter-operable with existing Health Information Systems. Once data is
+extracted from aggregate systems, it is loaded into the warehouse and its replicas for visualization
+on the web portal and Business Intelligence Tools like Tableau and Power BI.
+The Figure 1 below shows a description of how the architecture is set up:</p>
+<img alt="_images/architecture.png" class="align-center" src="_images/architecture.png" />
+<p>These databases labeled (DB1 to BD n) represent the different data sources from which data is
+aggregated and cleaned before a clean copy of the data is produced. To start with KHRO is linked
+to primary data sources like KHMFL (DB1), DHIS2 (DB3), LMIS (DB4) and open to more integrations. Regardless of their architectural or semantic differences, these systems are integrated
+into a complex schema using ETL (Extract-Transform-Load) tools to provide rich response and
+visualization for a scenario like:
+facility MSH001 in CountyX with X number of trained staff and Y drugs/Z commodities at the
+reporting increase or decrease in trend Z for indicator Q in Period XX
+To provide response to such a scenario, KHRO presents complex information in a simplified visual format like graphs, maps, and tables that make data accessible and filterable to meet the
+specific mandates or interests. The platform also present information on knowledge products with
+possibility of expanding these capabilities</p>
+<div class="section" id="back-end">
+<h2>Back-end<a class="headerlink" href="#back-end" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Seeding databases (DB1, DB2,DB3, DB4, DBn). These databases represent the different data sources from which data will be aggregated and cleaned before a clean</p></li>
+</ul>
+<p>copy of the data is produced. These include the DHIS2, KMFL, LMIS, iHRIS and
+other sources. Daemons make periodic calls to pull and push data. Data may also be
+manually populated using a data capture tool.</p>
+<ul class="simple">
+<li><p>ETL is short for extract, transform, load, three database functions that are combined</p></li>
+</ul>
+<p>into one tool to pull data out of one database and place it into another database.
+Extract is the process of reading data from a database. In this stage, the data is
+collected, often from multiple and different types of sources. Transform is the process
+of converting the extracted data from its previous form into the form it needs to be in
+so that it can be placed into another database. Transformation occurs by using rules
+or lookup tables or by combining the data with other data. Load is the process of
+writing the data into the target database.</p>
+<ul class="simple">
+<li><p>Staging Database - staging environment or staging site, serves as a temporary hosting</p></li>
+</ul>
+<p>of data. A second ETL or cleaning of data done to make sure all the data is matching
+to the required schema</p>
+<ul class="simple">
+<li><p>Master Warehouse (WH) - Used for maintaining the data that is used for reporting and</p></li>
+</ul>
+<p>data analysis, and core component of business intelligence in the given architecture</p>
+<ul class="simple">
+<li><p>Firewall - with Access control list to manage how, when and who can access data from</p></li>
+</ul>
+<p>the mater warehouse</p>
+</div>
+<div class="section" id="front-end">
+<h2>Front-end<a class="headerlink" href="#front-end" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Web portal app - the primary interface providing access to the system aggregate data</p></li>
+</ul>
+<p>and reports</p>
+</div>
+<div class="section" id="back-end-development-specifications">
+<h2>Back end development specifications<a class="headerlink" href="#back-end-development-specifications" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/backenddev.png" class="align-center" src="_images/backenddev.png" />
+</div>
+<div class="section" id="front-end-development-specifications">
+<h2>Front end development specifications<a class="headerlink" href="#front-end-development-specifications" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/Frontenddev.png" class="align-center" src="_images/Frontenddev.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Feature%20List%20%28Current%29.html" class="btn btn-neutral float-right" title="Feature List (Current)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to KHRO’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, @iLabAfrica
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
