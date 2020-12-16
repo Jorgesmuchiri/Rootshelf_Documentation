@@ -55,11 +55,11 @@ and reports
 
 Back end development specifications
 ***********************************
-.. image:: backenddev.png
+.. image:: backenddev.PNG
 	:align: center
 
 Front end development specifications
 ************************************
-.. image:: Frontenddev.png
+.. image:: Frontenddev.PNG
 	:align: center
 
