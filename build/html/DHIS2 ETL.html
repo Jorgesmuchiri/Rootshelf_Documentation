@@ -35,7 +35,9 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="KHRO DCT Overview" href="KHRO%20DCT%20Overview.html" />
+    <link rel="prev" title="Deployment" href="Deployment.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -80,15 +82,20 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Feature%20List%20%28Current%29.html">Feature List (Current)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Standards.html">Standards</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Standards.html#id5">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Components.html">Components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developement%20Standards.html">Developement Standards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Developement%20Standards.html#id5">Database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Deployment.html">Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Versioning%20and%20Releasing.html">Versioning and Releasing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DHIS2 ETL (Microservice)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#discussion">Discussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-extraction-from-the-dhis-to-moh-data-centre">Data extraction from the DHIS to MOH Data Centre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-extraction-for-the-kenya-health-and-research-observatory-khro">Data extraction for the Kenya Health and Research Observatory (KHRO)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="KHRO%20DCT%20Overview.html">KHRO DCT Overview</a></li>
 </ul>
 
             
@@ -173,18 +180,16 @@ over time. This is evidenced by different values for the same indicator and peri
 reports. Moreover, it makes comparison of current performance with historic performance
 biased since historic data may be more complete, leading to risk of relative underestimation
 of current performance.
-This bias can be mitigated by two different measures :
-#.  Extracting data from DHIS
-#.  Adjusting data based on reporting rates.</p>
-<ul class="simple">
-<li><p>Monthly data can be extracted from the KHIS at a specified point in time after the</p></li>
-</ul>
-<p>deadline for facility reporting, and be stored in the MOH Data Centre, which will not
+This bias can be mitigated by two different measures :</p>
+<ol class="arabic simple">
+<li><p>Extracting data from DHIS</p></li>
+<li><p>Adjusting data based on reporting rates.</p></li>
+</ol>
+<p>#.  Monthly data can be extracted from the KHIS at a specified point in time after the
+deadline for facility reporting, and be stored in the MOH Data Centre, which will not
 be affected by changes to the KHIS.</p>
-<ul class="simple">
-<li><p>Data can be adjusted (projected) using an algorithm to compensate for reporting rates</p></li>
-</ul>
-<p>below 100%</p>
+<p>#.  Data can be adjusted (projected) using an algorithm to compensate for reporting rates
+below 100%</p>
 </div>
 <div class="section" id="data-extraction-from-the-dhis-to-moh-data-centre">
 <h2>Data extraction from the DHIS to MOH Data Centre<a class="headerlink" href="#data-extraction-from-the-dhis-to-moh-data-centre" title="Permalink to this headline">¶</a></h2>
@@ -226,6 +231,15 @@ in the KHRO will always be identical to data used by MOH.</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="KHRO%20DCT%20Overview.html" class="btn btn-neutral float-right" title="KHRO DCT Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Deployment.html" class="btn btn-neutral float-left" title="Deployment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

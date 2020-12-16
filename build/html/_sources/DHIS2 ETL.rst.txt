@@ -21,14 +21,16 @@ reports. Moreover, it makes comparison of current performance with historic perf
 biased since historic data may be more complete, leading to risk of relative underestimation
 of current performance.
 This bias can be mitigated by two different measures :
+
 #.  Extracting data from DHIS  
+
 #.  Adjusting data based on reporting rates.
 
-* Monthly data can be extracted from the KHIS at a specified point in time after the
+#.  Monthly data can be extracted from the KHIS at a specified point in time after the
 deadline for facility reporting, and be stored in the MOH Data Centre, which will not
 be affected by changes to the KHIS.
 
-* Data can be adjusted (projected) using an algorithm to compensate for reporting rates
+#.  Data can be adjusted (projected) using an algorithm to compensate for reporting rates
 below 100%
 
 

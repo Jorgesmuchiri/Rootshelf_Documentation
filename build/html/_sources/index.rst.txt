@@ -1,10 +1,8 @@
-.. KHRO documentation master file, created by
-   sphinx-quickstart on Nov  17 16:19:34 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-.. image:: logo1.png
+
+.. image:: moh_logo.png
 	:align: center
+
 
 
 Welcome to KHRO's documentation!
@@ -36,13 +34,12 @@ Contents:
 .. toctree::
    :maxdepth: 1
    
-   Releases/Release Notes
    Architecture
    API
    Developement Standards 
    Deployment
    DHIS2 ETL 
-   help
+   KHRO DCT Overview
 
 
 

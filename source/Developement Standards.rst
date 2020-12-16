@@ -52,5 +52,8 @@ Gitlab
 
 Database
 ========
+
+
 .. image:: database.png
-	:align: center
+  :align: center
+
