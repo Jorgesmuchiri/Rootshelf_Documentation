@@ -4,97 +4,50 @@ Deployment
 Installations
 *************
 
+To run this package you need Python 3.5.2+, PostgresSQL and Redis.
 
-
-* Install LAMP 
-* Install composer 
+* Install Python 3.5.2+ 
+* Install PostgresSQL 
 * Install git
-* Clone the KHRO ::
- cd / var/www
- git clone git@gitlab .com: khro /khro - backend . git
- cd khro - backend
+* Install Redis
+
+This installation method assumes you are the author of the Rootshelf HGSF application and wish to develop it. Below are instructions to to install the package to a Python virtual environment using pip command in an editable mode.
+
+**Installation** ::
+
+	cd mfarm.rootshelf  # This is the folder with setup.py file
+	python3 -m venv env  # Create virtual environment
+	source env/bin/activate  # Activate virtual environment
+	pip install -U pip  # Make sure pip itself is up-to-date
+	pip install -r requirements.txt  # Install this package
+
+Running the website
+*******************
+
+**Create the database:** ::
+
+   psql create rootshelf_dev  # Create database
+
+Note
+****
+
+Edit the mfarm/rootshelf/conf/development.ini file and change the connection string to the one used on your environment. i.e.: postgresql://username:passwd@localhost/rootshelf_dev
+
+**Sync models from this application to the newly created database:** ::
+
+	ws-alembic -c mfarm/rootshelf/conf/development.ini -x packages=all revision --auto -m "Initial migration"
+	ws-alembic -c mfarm/rootshelf/conf/development.ini -x packages=all upgrade head
+	ws-sync-db ws://mfarm/rootshelf/conf/development.ini
 
 
+**Add a user with administrative rights:** ::
 
+	ws-create-custom-user ws://mfarm/rootshelf/conf/development.ini admin@example.com mypassword
 
-**Set Permissions** ::
+**Start the application:** ::
 
- sudo chgrp www - data ../ khro - backend ;
- sudo chown -R <username >: www - data ../ khro - backend /;
- sudo chmod -R 775 ../ khro - backend / storage /;
- sudo chmod -R 775 ../ khro - backend / bootstrap / cache ;
- sudo chmod g+s ../ khro - backend ;
+	pserve ws://mfarm/rootshelf/conf/development.ini
 
-
-**Install laravel dependencies (takes a while)** ::
-
-    composer update
-
-**Configurations** ::
-
-#. Setup virtual host 3
-Create to /etc/apache2/sites-available/khro.conf: ::
-
-     sudo cp /etc/ apache2 /sites - available /000 - default . conf / etc/ apache2 /
- sites - available / khro . conf ;
-
-#. Open to /etc/apache2/sites-available/khro.conf: ::
-
- sudo subl /etc/ apache2 /sites - available / khro . conf ;
-	 php artisan passport:install
-
-#. Add to /etc/apache2/sites-available/khro.conf: ::
-
-	ServerName khro
- DocumentRoot /var/www/khro - backend / public
- <Directory "/var/www/khro - backend / public ">
- AllowOverride All
- </ Directory >
-
-#. Open to /etc/hosts
-sudo subl /etc/hosts
-Add to /etc/hosts: ::
-
-	127.0.0.1 khro
-
-#. Activate the VH
-: ::
-
-	sudo a2ensite khro . conf && sudo service apache2 restart ;
-#. Visit the Virtual Host
-http://khro
-Set up DB
-copy and edit accordingly : ::
- cp . env. example .env && subl . env
-
-
-Migration
-*******
-
-Populate DB ::
- cd ˜ && mysql -u <username > -p -e " CREATE DATABASE
- khro_master_warehouse ;" && mysql -u <username > -p
- khro_master_warehouse < khro_master_warehouse . sql && cd / var/ www/
- khro_backend && php artisan migrate
-
-
-
-Backup
-******
-
-Create cronjob to run backup script, having edited and moved the backup script to home
-directory, use crontab to add ::
-
-
- 0 0 1 * * ./ home / user / db_backup .sh
-
-
-Loading data from KHRO Microservice to KHRO Warehouse
-*****************************************************
-::
-
- cd / var / www/khro - backend && php artisn dhismicroservicepull { - - period =}
- { - - indicator =} { - - location =}
 
 
 

@@ -3,43 +3,29 @@ Developement Standards
 
 General programming
 *******************
+Rootshelf has been nuilt using Websauna, It is  a full stack Python web framework for building consumer and community oriented websites.
+Websauna gives you building blocks for creating scalable, state-of-the-art websites and services. The framework enables efficient business problem solving, so that developers can maximize productivity from day zero. Websauna is suggestive and has default options on all parts of stack, so one can follow a red line to get the first release out quickly. On the other hand, Websauna does not enforce hard opinions and sacrifice flexibility, so that experienced developers can easily override parts and use more sophisticated components for specific needs.
 
-All indices should zero based. e.g. if a ¡select¿ element has sequential numeric values these
-would be from the series 0,1,2,3.
+Websauna achieves flexibility by keeping its own codebase minimal and not reinventing the wheel. Instead it provides a polished integration of the top packages of Python ecosystem like Pyramid web framework, SQLAlchemy object relationship mapper, Alembic migration scripts, IPython shell, Authomatic federated login, Jinja templating and pytest testing framework.
+
+Websauna is focused on Internet facing sites where you have a public or private sign up process and administrative backend. It’s sweet spots are custom business portals, software-as-a-service sites and consumer portals. A special focus is given for security, so that Websauna is a strong candidate for financial technology and eCommerce solutions
+
+* **References**
+	* `Documentation <https://docs.websauna.org/index.html#/>`_
+
 
 Database
 ********
 
-**Naming**
+Rootshelf uses PostgreSQL which is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.
 
-* table names, column names: all lowercase, use underscores to separate words e.g **e.g permission role
-**
-* names with abbreviations may be treated differently e.g. **targetTAT** makes more sense
-* better long names that makes sense
+PostgreSQL comes with many features aimed to help developers build applications, administrators to protect data integrity and build fault-tolerant environments, and help you manage your data no matter how big or small the dataset. In addition to being free and open source, PostgreSQL is highly extensible. For example, you can define your own data types, build out custom functions, even write code from different programming languages without recompiling your database!
 
-#. Use of appropriate field type e.g. ‘**SMALLINT**’ instead of ‘**STRING**’ for age
-#. If a primary key is necessary on a table it should be the first column and should be named 'id'. It should be unsigned.
-#. When this id is referenced in another table (as a foreign key) it should be called '**tablename_id**'
-#. Create a migration file for every new table or change to a table. If necessary add the seed data using a separate file. See the `Migrations & Seeding section of the online Laravel guide.
-
-**PHP Classes This applies to Controllers, Models, migration and seeding classes, ...**
-
-#. Class names always begins with uppercase e.g. **CreateTestTypeMeasureTable**
-#. When combining words every word begins with uppercase. Do not use underscores e.g. **DataType** as opposed to **Data_type**
-#. Method or Function names begin in lowercase and words join in uppercase e.g. **getHealthData()**
-#. Provide descriptive class and function comments before their definitions
-#. Variable names - begin in lowercase. Multiple words should begin in upper case e.g. **dataType**
-#. Better long names that makes sense e.g. **dataType** instead of **datTyp**
-#. Soft delete(s) preferable to hard delete(s)
+* **References**
+	* `Documentation <https://www.postgresql.org/docs/>`_
 
 
-Javascript
-**********
-
-#. Using jquery
-#. All javascript code should be in external files (``public/js/``)
-
-Gitlab
+Github
 ******
 
 #. Create a branch from the master for the same change. The branch name should be descriptive
@@ -53,7 +39,4 @@ Gitlab
 Database
 ========
 
-
-.. image:: database.png
-  :align: center
 

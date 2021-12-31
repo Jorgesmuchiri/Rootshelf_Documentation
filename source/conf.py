@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'KHRO Documentation'
-copyright = '2020, @iLabAfrica'
-author = '@iLabAfrica'
+project = 'Rootshelf Documentation'
+copyright = '2021, Rootshelf'
+author = 'Rootshelf'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'
